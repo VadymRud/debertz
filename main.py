@@ -48,4 +48,18 @@ http://study-english.info/
 
 """
 
+import random
+from cards import cards
+
+debertz_cards = cards[20:-2]
+#print(debertz_cards)
+
+def my_shuffle(array):
+        random.shuffle(array)
+        return array
+
+if __name__ == "__main__":
+    
+    print(my_shuffle(debertz_cards))
+
 
