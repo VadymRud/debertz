@@ -1,4 +1,4 @@
-"""
+﻿"""
 card	[ kɑːd ]	карта
 card games	[ kɑːd ɡeɪmz ]	карточные игры
 game	[ ɡeɪm ]	кон / партия / раздача
@@ -57,6 +57,26 @@ debertz_cards = cards[20:-2]
 def my_shuffle(array):
         random.shuffle(array)
         return array
+
+cards_player_one = []
+cards_player_two = []
+cards_player_three = []
+
+# роздача карт перший
+first = 1
+second = 0
+third = 0
+fourth = 0
+# кількість гравців
+player_count
+
+for k in range(6*3):
+    if first:
+        cards_player_one.append(debertz_cards.pop())
+        if k%2 == 0:
+            first = 0
+            second = 1
+            third = 0
 
 if __name__ == "__main__":
     
