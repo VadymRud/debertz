@@ -64,6 +64,8 @@ def my_shuffle(array):
 cards_player_one = list()
 cards_player_two = list()
 cards_player_three = list()
+cards_player_fourth = list()
+
 
 # роздача карт перший
 first = 0
@@ -71,45 +73,37 @@ second = 3
 third = 3
 fourth = 3
 # кількість гравців
-player_count = 3
+player_count = 4
 
 # print(len(debertz_cards))
 debertz_cards = my_shuffle(debertz_cards)
 
-for k in range(6*3):
-    if first <= 2:
+for k in range(player_count):
+    for i in range(2):
         add_card = debertz_cards.pop()
         cards_player_one.append(add_card)
-        first += 1
-    elif second <= 2:
-        first = 3
-        second = 0
-        third = 3
+        if i == 2:
+            break
+    for i in range(2):
+        add_card = debertz_cards.pop()
+        cards_player_two.append(add_card)
+        if i == 2:
+            break
+    for i in range(2):
+        add_card = debertz_cards.pop()
+        cards_player_three.append(add_card)
+        if i == 2:
+            break
+    for i in range(2):
+        add_card = debertz_cards.pop()
+        cards_player_fourth.append(add_card)
+        if i == 2:
+            break
 
-        if second <= 2:
-            add_card = debertz_cards.pop()
-            cards_player_two.append(add_card)
-            second += 1
-
-        elif third <= 2:
-            third = 0
-            first = 3
-            second = 3
-
-            if third <= 2:
-                add_card = debertz_cards.pop()
-                cards_player_three.append(add_card)
-                third += 1
-            elif first == 2:
-                third = 3
-                first = 0
-                second = 3
-        # if k%2 == 0:
-        #     first = True
-        #     second = False
-        #     third = False
-
-print(cards_player_one)
+print('cards_player_one: ', cards_player_one)
+print('cards_player_two: ', cards_player_two)
+print('cards_player_three: ', cards_player_three)
+print('cards_player_fourth: ', cards_player_fourth)
 # print(cards_player_two)
 # print(cards_player_three)
 
