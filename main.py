@@ -67,18 +67,13 @@ cards_player_three = list()
 cards_player_fourth = list()
 
 
-# роздача карт перший
-first = 0
-second = 3
-third = 3
-fourth = 3
 # кількість гравців
 player_count = 4
 
 # print(len(debertz_cards))
 debertz_cards = my_shuffle(debertz_cards)
 
-for k in range(player_count):
+for k in range(3):
     for i in range(2):
         add_card = debertz_cards.pop()
         cards_player_one.append(add_card)
@@ -94,18 +89,24 @@ for k in range(player_count):
         cards_player_three.append(add_card)
         if i == 2:
             break
-    for i in range(2):
-        add_card = debertz_cards.pop()
-        cards_player_fourth.append(add_card)
-        if i == 2:
-            break
+    if player_count == 4:
+        for i in range(2):
+            add_card = debertz_cards.pop()
+            cards_player_fourth.append(add_card)
+            if i == 2:
+                break
 
 print('cards_player_one: ', cards_player_one)
 print('cards_player_two: ', cards_player_two)
 print('cards_player_three: ', cards_player_three)
-print('cards_player_fourth: ', cards_player_fourth)
+if player_count == 4:
+    print('cards_player_fourth: ', cards_player_fourth)
+print('deck of cards: ', debertz_cards, len(debertz_cards))
 # print(cards_player_two)
 # print(cards_player_three)
+
+
+
 
 if __name__ == "__main__":
     
