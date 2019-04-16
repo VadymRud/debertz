@@ -65,51 +65,97 @@ cards_player_one = list()
 cards_player_two = list()
 cards_player_three = list()
 cards_player_fourth = list()
-
+# карти в колоді
+deck_of_cards = list()
 
 # кількість гравців
 player_count = 4
 
+# козир
+
 # print(len(debertz_cards))
 debertz_cards = my_shuffle(debertz_cards)
 
-for k in range(3):
-    for i in range(2):
+for k in range(2):
+    for i in range(3):
         add_card = debertz_cards.pop()
         cards_player_one.append(add_card)
         if i == 2:
             break
-    for i in range(2):
+    for i in range(3):
         add_card = debertz_cards.pop()
         cards_player_two.append(add_card)
         if i == 2:
             break
-    for i in range(2):
+    for i in range(3):
         add_card = debertz_cards.pop()
         cards_player_three.append(add_card)
         if i == 2:
             break
     if player_count == 4:
-        for i in range(2):
+        for i in range(3):
             add_card = debertz_cards.pop()
             cards_player_fourth.append(add_card)
             if i == 2:
                 break
 
+deck_of_cards = debertz_cards
+
+# роздаєм карти з колоди
+if player_count == 3:
+    for i in range(4):
+        add_card = deck_of_cards.pop()
+        cards_player_one.append(add_card)
+        if i == 3:
+            break
+    for i in range(4):
+        add_card = deck_of_cards.pop()
+        cards_player_two.append(add_card)
+        if i == 3:
+            break
+    for i in range(4):
+        add_card = deck_of_cards.pop()
+        cards_player_three.append(add_card)
+        if i == 3:
+            break
+    
+    trump = deck_of_cards[-1]
+
+# роздаєм карти з колоди
+if player_count == 4:
+    for i in range(2):
+        add_card = deck_of_cards.pop()
+        cards_player_one.append(add_card)
+        if i == 1:
+            break
+    for i in range(2):
+        add_card = deck_of_cards.pop()
+        cards_player_two.append(add_card)
+        if i == 1:
+            break
+    for i in range(2):
+        add_card = deck_of_cards.pop()
+        cards_player_three.append(add_card)
+        if i == 1:
+            break
+    for i in range(2):
+        add_card = deck_of_cards.pop()
+        cards_player_fourth.append(add_card)
+        if i == 1:
+            break
+    trump = cards_player_fourth[-1]
 print('cards_player_one: ', cards_player_one)
 print('cards_player_two: ', cards_player_two)
 print('cards_player_three: ', cards_player_three)
 if player_count == 4:
     print('cards_player_fourth: ', cards_player_fourth)
-print('deck of cards: ', debertz_cards, len(debertz_cards))
+print('deck of cards: ', deck_of_cards, len(deck_of_cards))
+print('trump ', trump)
 # print(cards_player_two)
 # print(cards_player_three)
 
-
-
-
-if __name__ == "__main__":
+# if __name__ == "__main__":
     
-    print(my_shuffle(debertz_cards))
+#     print(my_shuffle(debertz_cards))
 
 
