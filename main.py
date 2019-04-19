@@ -49,7 +49,7 @@ http://study-english.info/
 """
 
 import random
-from cards import cards
+from cards import cards, Card, numbers
 
 
 debertz_cards = cards[20:-2]
@@ -145,14 +145,23 @@ if player_count == 4:
             break
     trump = cards_player_fourth[-1]
 
+cards_player_one_sort = []
+for card in cards_player_one:
+    split_card = card.split('_')
+    for numb, ranc in numbers.items():
+        if ranc == card.split('_')[0]:
+            cards_player_one_sort.append(Card(split_card[0],
+                                         split_card[1], numb))
 
-print('cards_player_one: ', sorted(cards_player_one, key=lambda suit: suit.split('_')[1]))
+cards_player_one_sort = sorted(cards_player_one_sort,
+                               key = lambda card: (card.suit, card.number))
+print('cards_player_one: ', cards_player_one_sort)
 print('cards_player_two: ', cards_player_two)
 print('cards_player_three: ', cards_player_three)
 if player_count == 4:
     print('cards_player_fourth: ', cards_player_fourth)
 print('deck of cards: ', deck_of_cards, len(deck_of_cards))
-print('trump ', trump)
+print('trump: ', trump)
 # print(cards_player_two)
 # print(cards_player_three)
 

@@ -16,8 +16,32 @@ cards = ['2_♥', '2_♣', '2_♦', '2_♠',
 
 SUITS_PRINTABLE = ['♠', '♥', '♦', '♣']
 
-class Cards:
+numbers = {
+            2: '2',
+            3: '3',
+            4: '4',
+            5: '5',
+            6: '6',
+            7: '7',
+            8: '8',
+            9: '9',
+            10: '10',
+            11: 'jack',
+            12: 'queen',
+            13: 'king',
+            14: 'ace',
+            15: 'joker'
+        }
+
+
+
+class Card:
     
-    def __init__(self, *args, **kwargs):
-        
+    def __init__(self, rank, suit, number):
+        self.rank = rank
+        self.suit = suit
+        self.number = number
+
+    def __repr__(self):
+        return repr((self.rank, self.suit, self.number))
     
