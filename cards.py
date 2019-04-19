@@ -1,15 +1,23 @@
-cards = ['2_hearts', '2_clubs', '2_diamonds', '2_spades',
-         '3_hearts', '3_clubs', '3_diamonds', '3_spades',
-         '4_hearts', '4_clubs', '4_diamonds', '4_spades',
-         '5_hearts', '5_clubs', '5_diamonds', '5_spades',
-         '6_hearts', '6_clubs', '6_diamonds', '6_spades',
-         '7_hearts', '7_clubs', '7_diamonds', '7_spades',
-         '8_hearts', '8_clubs', '8_diamonds', '8_spades',
-         '9_hearts', '9_clubs', '9_diamonds', '9_spades',
-         '10_hearts', '10_clubs', '10_diamonds', '10_spades',
-         'jack_hearts', 'jack_clubs', 'jack_diamonds', 'jack_spades',
-         'queen_hearts', 'queen_clubs', 'queen_diamonds', 'queen_spades',
-         'king_hearts', 'king_clubs', 'king_diamonds', 'king_spades',
-         'ace_hearts', 'ace_clubs', 'ace_diamonds', 'ace_spades',
+cards = ['2_♥', '2_♣', '2_♦', '2_♠',
+         '3_♥', '3_♣', '3_♦', '3_♠',
+         '4_♥', '4_♣', '4_♦', '4_♠',
+         '5_♥', '5_♣', '5_♦', '5_♠',
+         '6_♥', '6_♣', '6_♦', '6_♠',
+         '7_♥', '7_♣', '7_♦', '7_♠',
+         '8_♥', '8_♣', '8_♦', '8_♠',
+         '9_♥', '9_♣', '9_♦', '9_♠',
+         '10_♥', '10_♣', '10_♦', '10_♠',
+         'jack_♥', 'jack_♣', 'jack_♦', 'jack_♠',
+         'queen_♥', 'queen_♣', 'queen_♦', 'queen_♠',
+         'king_♥', 'king_♣', 'king_♦', 'king_♠',
+         'ace_♥', 'ace_♣', 'ace_♦', 'ace_♠',
          'joker_1', 'joker_2'
          ]
+
+SUITS_PRINTABLE = ['♠', '♥', '♦', '♣']
+
+class Cards:
+    
+    def __init__(self, *args, **kwargs):
+        
+    

@@ -144,7 +144,9 @@ if player_count == 4:
         if i == 1:
             break
     trump = cards_player_fourth[-1]
-print('cards_player_one: ', cards_player_one)
+
+
+print('cards_player_one: ', sorted(cards_player_one, key=lambda suit: suit.split('_')[1]))
 print('cards_player_two: ', cards_player_two)
 print('cards_player_three: ', cards_player_three)
 if player_count == 4:
