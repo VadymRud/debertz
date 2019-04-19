@@ -37,11 +37,22 @@ numbers = {
 
 class Card:
     
-    def __init__(self, rank, suit, number):
+    def __init__(self, rank, suit, value):
         self.rank = rank
         self.suit = suit
-        self.number = number
+        self.value = value
 
     def __repr__(self):
-        return repr((self.rank, self.suit, self.number))
+        return repr((self.rank, self.suit, self.value))
     
+
+pl_one_sort = [
+    ('queen', '♣', 12),
+    ('king', '♣', 13),
+    ('10', '♥', 10),
+    ('jack', '♥', 11),
+    ('queen', '♥', 12),
+    ('10', '♦', 10),
+    ('king', '♦', 13),
+    ('ace', '♦', 14)
+]
