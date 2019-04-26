@@ -47,9 +47,6 @@ Read more: http://study-english.info/vocabulary-cards.php#ixzz5kUW0DoKL
 http://study-english.info/ 
 
 """
-
-
-
 import random
 from cards import cards, Card, numbers
 
@@ -149,14 +146,14 @@ if player_count == 4:
 
 cards_player_one_sort = []
 for card in cards_player_one:
-    split_card = card.split('_')
+    rank, suit = card.split('_')
     for value, ranc in numbers.items():
-        if ranc == card.split('_')[0]:
-            cards_player_one_sort.append(Card(split_card[0],
-                                         split_card[1], value))
+        if ranc == rank:
+            cards_player_one_sort.append(Card(rank,
+                                         suit, value))
 
 cards_player_one_sort = sorted(cards_player_one_sort,
-                               key = lambda card: (card.suit, card.value))
+                               key=lambda card: (card.suit, card.value))
 
 for card in cards_player_one_sort:
     print(card)
