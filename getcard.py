@@ -60,6 +60,20 @@ def my_shuffle(array):
     return array
 
 
+def cards_player_sort(cards_player):
+    cards_player_sort_arr = []
+    for card in cards_player:
+        rank, suit = card.split('_')
+        for value, ranc in numbers.items():
+            if ranc == rank:
+                cards_player_sort_arr.append(Card(rank,
+                                             suit, value))
+
+    cards_player_sort_arr = sorted(cards_player_sort_arr,
+                                   key=lambda card: (card.suit, card.value))
+    return cards_player_sort_arr
+
+
 def first_step(player_count):
     debertz_cards = cards[20:-2]
     cards_player_one = list()
@@ -101,11 +115,19 @@ def first_step(player_count):
                     break
 
     deck_of_cards = debertz_cards
+
+    cards_player_one_sort = cards_player_sort(cards_player_one)
+    cards_player_two_sort = cards_player_sort(cards_player_two)
+    cards_player_three_sort = cards_player_sort(cards_player_three)
+    cards_player_fourth_sort = cards_player_sort(cards_player_fourth)
+
+    for card in cards_player_one_sort:
+        print(card)
     return {
-            'cards_player_one': cards_player_one,
-            'cards_player_two': cards_player_two,
-            'cards_player_three': cards_player_three,
-            'cards_player_fourth': cards_player_fourth,
+            'cards_player_one': cards_player_one_sort,
+            'cards_player_two': cards_player_two_sort,
+            'cards_player_three': cards_player_three_sort,
+            'cards_player_fourth': cards_player_fourth_sort,
             'deck_of_cards': debertz_cards,
             'trump': debertz_cards[-1]
             }
@@ -131,8 +153,6 @@ def step_two():
                 break
 
         trump = deck_of_cards[-1]
-
-
     # роздаєм карти з колоди
     if player_count == 4:
         for i in range(2):
