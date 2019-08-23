@@ -68,7 +68,7 @@ cards_player_fourth = list()
 deck_of_cards = list()
 
 # кількість гравців
-player_count = 4
+player_count = 3
 
 # козир
 
