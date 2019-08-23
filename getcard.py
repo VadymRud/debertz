@@ -60,116 +60,129 @@ def my_shuffle(array):
     return array
 
 
-cards_player_one = list()
-cards_player_two = list()
-cards_player_three = list()
-cards_player_fourth = list()
-# карти в колоді
-deck_of_cards = list()
+def first_step(player_count):
+    debertz_cards = cards[20:-2]
+    cards_player_one = list()
+    cards_player_two = list()
+    cards_player_three = list()
+    cards_player_fourth = list()
+    # карти в колоді
+    deck_of_cards = list()
 
-# кількість гравців
-player_count = 3
+    # кількість гравців
+    # player_count = 3
 
-# козир
+    # козир
 
-# print(len(debertz_cards))
-debertz_cards = my_shuffle(debertz_cards)
+    # print(len(debertz_cards))
+    debertz_cards = my_shuffle(debertz_cards)
 
-for k in range(2):
-    for i in range(3):
-        add_card = debertz_cards.pop()
-        cards_player_one.append(add_card)
-        if i == 2:
-            break
-    for i in range(3):
-        add_card = debertz_cards.pop()
-        cards_player_two.append(add_card)
-        if i == 2:
-            break
-    for i in range(3):
-        add_card = debertz_cards.pop()
-        cards_player_three.append(add_card)
-        if i == 2:
-            break
-    if player_count == 4:
+    for k in range(2):
         for i in range(3):
             add_card = debertz_cards.pop()
-            cards_player_fourth.append(add_card)
+            cards_player_one.append(add_card)
             if i == 2:
                 break
+        for i in range(3):
+            add_card = debertz_cards.pop()
+            cards_player_two.append(add_card)
+            if i == 2:
+                break
+        for i in range(3):
+            add_card = debertz_cards.pop()
+            cards_player_three.append(add_card)
+            if i == 2:
+                break
+        if player_count == 4:
+            for i in range(3):
+                add_card = debertz_cards.pop()
+                cards_player_fourth.append(add_card)
+                if i == 2:
+                    break
 
-deck_of_cards = debertz_cards
+    deck_of_cards = debertz_cards
+    return {
+            'cards_player_one': cards_player_one,
+            'cards_player_two': cards_player_two,
+            'cards_player_three': cards_player_three,
+            'cards_player_fourth': cards_player_fourth,
+            'deck_of_cards': debertz_cards,
+            'trump': debertz_cards[-1]
+            }
 
-# роздаєм карти з колоди
-if player_count == 3:
-    for i in range(4):
-        add_card = deck_of_cards.pop()
-        cards_player_one.append(add_card)
-        if i == 3:
-            break
-    for i in range(4):
-        add_card = deck_of_cards.pop()
-        cards_player_two.append(add_card)
-        if i == 3:
-            break
-    for i in range(4):
-        add_card = deck_of_cards.pop()
-        cards_player_three.append(add_card)
-        if i == 3:
-            break
-    
-    trump = deck_of_cards[-1]
 
-# роздаєм карти з колоди
-if player_count == 4:
-    for i in range(2):
-        add_card = deck_of_cards.pop()
-        cards_player_one.append(add_card)
-        if i == 1:
-            break
-    for i in range(2):
-        add_card = deck_of_cards.pop()
-        cards_player_two.append(add_card)
-        if i == 1:
-            break
-    for i in range(2):
-        add_card = deck_of_cards.pop()
-        cards_player_three.append(add_card)
-        if i == 1:
-            break
-    for i in range(2):
-        add_card = deck_of_cards.pop()
-        cards_player_fourth.append(add_card)
-        if i == 1:
-            break
-    trump = cards_player_fourth[-1]
+def step_two():
+    # роздаєм карти з колоди
+    if player_count == 3:
+        for i in range(4):
+            add_card = deck_of_cards.pop()
+            cards_player_one.append(add_card)
+            if i == 3:
+                break
+        for i in range(4):
+            add_card = deck_of_cards.pop()
+            cards_player_two.append(add_card)
+            if i == 3:
+                break
+        for i in range(4):
+            add_card = deck_of_cards.pop()
+            cards_player_three.append(add_card)
+            if i == 3:
+                break
 
-cards_player_one_sort = []
-for card in cards_player_one:
-    rank, suit = card.split('_')
-    for value, ranc in numbers.items():
-        if ranc == rank:
-            cards_player_one_sort.append(Card(rank,
-                                         suit, value))
+        trump = deck_of_cards[-1]
 
-cards_player_one_sort = sorted(cards_player_one_sort,
-                               key=lambda card: (card.suit, card.value))
 
-for card in cards_player_one_sort:
-    print(card)
+    # роздаєм карти з колоди
+    if player_count == 4:
+        for i in range(2):
+            add_card = deck_of_cards.pop()
+            cards_player_one.append(add_card)
+            if i == 1:
+                break
+        for i in range(2):
+            add_card = deck_of_cards.pop()
+            cards_player_two.append(add_card)
+            if i == 1:
+                break
+        for i in range(2):
+            add_card = deck_of_cards.pop()
+            cards_player_three.append(add_card)
+            if i == 1:
+                break
+        for i in range(2):
+            add_card = deck_of_cards.pop()
+            cards_player_fourth.append(add_card)
+            if i == 1:
+                break
+        trump = cards_player_fourth[-1]
 
-print('cards_player_one: ', cards_player_one_sort)
-print('cards_player_two: ', cards_player_two)
-print('cards_player_three: ', cards_player_three)
-if player_count == 4:
-    print('cards_player_fourth: ', cards_player_fourth)
-print('deck of cards: ', deck_of_cards, len(deck_of_cards))
-print('trump: ', trump)
-# print(cards_player_two)
-# print(cards_player_three)
+    cards_player_one_sort = []
+    for card in cards_player_one:
+        rank, suit = card.split('_')
+        for value, ranc in numbers.items():
+            if ranc == rank:
+                cards_player_one_sort.append(Card(rank,
+                                             suit, value))
 
-# if __name__ == "__main__":
-    
-#     print(my_shuffle(debertz_cards))
+    cards_player_one_sort = sorted(cards_player_one_sort,
+                                   key=lambda card: (card.suit, card.value))
+
+    for card in cards_player_one_sort:
+        print(card)
+
+    print('cards_player_one: ', cards_player_one_sort)
+    print('cards_player_two: ', cards_player_two)
+    print('cards_player_three: ', cards_player_three)
+    if player_count == 4:
+        print('cards_player_fourth: ', cards_player_fourth)
+    print('deck of cards: ', deck_of_cards, len(deck_of_cards))
+    print('trump: ', trump)
+    # print(cards_player_two)
+    # print(cards_player_three)
+
+    # if __name__ == "__main__":
+
+    #     print(my_shuffle(debertz_cards))
 
 
