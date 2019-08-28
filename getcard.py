@@ -133,7 +133,7 @@ def first_step(player_count):
             }
 
 
-def step_two():
+def step_two(player_count=3, cards=None):
     # роздаєм карти з колоди
     if player_count == 3:
         for i in range(4):
