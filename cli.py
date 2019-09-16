@@ -6,8 +6,8 @@ from getcard import first_step
 @click.command()
 @click.option('--count', default=3, prompt='Count of gamblers',
               help='Count of gamblers')
-@click.option('--step', default=1, help='Step the game.')
-def hello(count):
+@click.option('--step', prompt='Step', default=1, help='Step the game.')
+def hello(count, step):
     """Check integer"""
     pprint(first_step(count))
 
